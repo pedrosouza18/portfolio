@@ -1,0 +1,308 @@
+/*A propriedade margin controla o espaço entre elementos.
+
+A propriedade padding controla o espaço entre o conteúdo de um elemento e sua borda.
+
+As propriedades width e height controlam apenas o tamanho de um elemento, e não afetam o espaçamento entre esse elemento e seus vizinhos
+.
+
+ Já a propriedade box-sizing controla apenas como a largura e a altura de um elemento devem ser calculados.
+
+Por fim, a propriedade line-height controla apenas a altura entre as linhas de texto da página, não afetando a distância entre elementos.
+Propriedade rem coloca estilo a partir do navegador, em coloca a partir da largura do elemento
+*/
+
+html {
+	font-size: 125%;
+}
+
+body {
+	font-family: "Crimson Text";
+	background-color: #F2FFFC;
+	line-height: 1.5;
+}
+
+h1, h2 {
+	font-family: "Open Sans Condensed", sans-serif;
+}
+
+h1 {
+	text-shadow: 5px 5px #000;
+}
+
+h2 {
+	font-size: 1.5rem;
+	/*clear: both serve para fazer com que ambos os elementos não tenham elementos ao seu lado, so abaixo*/
+	clear: both;
+}
+
+p {
+	margin: 1rem 0;
+}
+
+.titulo-principal {
+	text-align: center;
+	color: #ffffff;
+	background-color: #851944;
+	padding: 1.25rem;
+	border-bottom: .5rem solid black;
+	margin: 0;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+p {
+	text-align: justify;
+}
+
+
+/*Quando aplicamos o valor border-box para a propriedade box-sizing nos elementos <blockquote>,
+ vemos que o tamanho deles aparentemente diminui. Isso acontece porque estamos mudando a forma como o 
+ navegador mede a largura dos elementos.
+Por padrão, o navegador mede a largura ignorando padding e 
+bordas. No momento em que colocamos border-box, dizemos ao navegador que ele deve 
+considerar padding e bordas nesse cálculo. Então o elemento diminui pois agora os 250 pixels
+ que definimos de largura incluem os paddings e bordas do elemento.*/
+.citacao {
+	background-color: #D9E5E3;
+	border: .5rem solid transparent;
+	width: 30ch;
+	box-sizing: border-box;
+	border-bottom-color: #333;
+    border-right-color: #FFF;
+    margin: 1rem 0;
+}
+
+.citacao:hover,
+.citacao:focus{
+	box-shadow: 0 0 0 99999px rgba(0,0,0,.8);
+}
+
+blockquote:nth-of-type(odd) {
+	float: right;
+	margin-left: 1rem;
+}
+
+blockquote:nth-of-type(odd):hover,
+blockquote:nth-of-type(odd):focus {
+	transform: scale(1.2) rotate(5deg);
+}
+
+blockquote:nth-of-type(even) {
+	float: left;
+	margin-right: 1rem;
+}
+
+blockquote:nth-of-type(even):hover,
+blockquote:nth-of-type(even):focus {
+	transform: scale(1.2) rotate(-5deg);
+}
+
+main a:hover,
+main a:focus,
+footer a:hover,
+footer a:focus {
+    color: red;
+}
+
+.menu-navegacao {
+	background-color: #3C1D3D;
+	color: #F2FFFC;
+	text-align: center;
+	float: right;
+	clear: right;
+	width: 15%;
+	box-sizing: border-box;
+	/*position: relative Ele fica relativo a tela, qualquer modificacao, altera a tela, ele precisa das propriedades top, left, right, bottom para se mexer*/
+	position: relative;
+	border: .5em solid black;
+	top: 310px;
+}
+
+.menu-navegacao a:hover,
+.menu-navegacao a:focus {
+	text-shadow: 0 0 2px pink;
+}
+
+.imagem-pessoal {
+	float: right;
+	/*position: absolute ele não interfere no fluxo da tela e tambem precisa das propriedades para se mexer*/
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: .5em solid black;
+}
+
+main {
+	width: 85%;
+	float: left;
+}
+
+.menu-navegacao h1 {
+	font-size: 1.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.menu-navegacao a {
+	color: inherit;
+    font-family: "Open Sans Condensed", sans-serif;
+    text-transform: lowercase;
+}
+
+.icones-redes-sociais a {
+	height: 6vh;
+	width: 6vh;
+	display: block;
+	font-size: 0;
+}
+
+.icones-redes-sociais li {
+    display: inline-block;
+}
+
+.icones-redes-sociais a {
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-indent: -99999px;
+}
+
+.github {
+    background-image: url(../github.png);
+}
+
+.twitter {
+    background-image: url(../twitter.png);
+}
+
+.linkedin {
+    background-image: url(../linkedin.png);
+}
+
+.estilo-footer {
+    background-image: radial-gradient(ellipse at bottom left, rgba(60, 29, 61, 0.8),
+     rgba(60, 29, 61, 0.8) 65%, 
+     black 65%, black 70%, transparent 70%, transparent);
+    background-size: 25% 100%;
+    background-repeat: no-repeat;
+    color: #000;
+    padding: 1em;
+    clear: both;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+blockquote, aside {
+    padding: 1em;
+}
+
+main a {
+	color: #851944;
+}
+
+.content {
+	width: 40%;
+	margin: auto;
+	padding: 1.5rem 0;
+	padding-bottom: 4rem;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+
+.artigos + .artigos {
+	margin-top: 1.5em;
+	/*border-bottom: 1px solid #ccc;*/
+    background-position: top center;
+	padding-top: 1em;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03), #cccdcd, rgba(0, 0, 0, 0.03));
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+}
+
+.leia-mais {
+	padding: .4em;
+    margin: .8em;
+    /*display block serve para voce ocupar a linha toda*/
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #E6E7E8;
+    border-radius: 3px;
+}
+
+.portfolio li {
+	border: .8em solid #000000;
+	display: inline-block;
+	width: 45%;
+	background-color: #FAFFFC;
+    box-sizing: border-box;
+    padding: 1.7em;
+    margin-right: .8em;
+    margin-bottom: .8em;
+}
+
+.portfolio img {
+    width: 100%;
+    box-shadow: 0 0 1em #000;
+}
+
+/*first-letter pega a primeira letra do elemento selecionado*/
+.content > p:first-letter {
+	font-size: 2em;
+	color: #3C1D3D;
+	font-weight: bold;
+	text-shadow: 1px 1px #000;
+}
+
+blockquote::before {
+	content: '“';
+	font-size: 10em;
+	color: #bbb;
+	position: absolute;
+	line-height: .8em;
+}
+
+/*Preciso usar essa propriedade para o texto ficar a frente*/
+.citacao > p {
+    position: relative;
+}
+
+.icones-redes-sociais a {
+    position: relative;
+}
+
+/*Quando se usa o after ou before sempre precisa usar o content para renderizar o elemento*/
+/*attr(data-tooltip) pega o tooltip que esta no html*/
+.icones-redes-sociais a:hover::after,
+.icones-redes-sociais a:focus::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    text-indent: 0;
+    width: 300%;
+    background: black;
+    font-size: .75em;
+}
+
+
+/*Gravata borboleta*/
+/*div {
+	border-bottom: 30px solid transparent;
+    border-top: 30px solid transparent;
+    border-right: 30px solid red;
+    border-left: 30px solid blue;
+    width: 0px;
+}*/
+
+/*        background-image: radial-gradient(circle at right, black, transparent, transparent);
+    background-size: 5px 1px;
+    background-repeat: repeat-x;
+    background-position: bottom center;
