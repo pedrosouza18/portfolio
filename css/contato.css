@@ -38,6 +38,7 @@ button {
     /* Faz com que o botão apareça na direita */
     margin-left: auto;
     margin-top: 1em;
+    cursor: pointer;
 }
 
 fieldset > fieldset {
