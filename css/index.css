@@ -4,6 +4,9 @@
     box-shadow: 0 0 1em #000;
 }
 
+.saudacao:hover em {
+    animation-play-state: paused;
+}
 
 .saudacao p {
     font-size: 1.5em;
@@ -48,10 +51,15 @@ h2 {
     display: block;
     text-align: center;
     box-shadow: 0 0 2em #000, inset 0 0 0.5em white;
+    transition: .5s;
+    text-decoration: none;
 }
 
-.botao-index:hover {
-    background: #d5447e;
+.botao-index:hover,
+.botao-index:focus{
+    background-color: #C54974;
+    color: white;
+    box-shadow: 0 0 1em #FA9;
 }
 .secao-inicio {
     padding: 2em;
@@ -236,8 +244,8 @@ body {
     /* altura = 3.5em */
     /* tx = .707 * h - .707 * w + w */
     /* ty = -.707 * h */
-    -webkit-transform: translate(6.5765em, -2.4745em) rotate(45deg);
-            transform: translate(6.5765em, -2.4745em) rotate(45deg);
+    -webkit-transform: translate(calc(.707 * (3.5em - 100%) + 100%), calc(-.707 * 3.5em)) rotate(45deg);
+            transform: translate(calc(.707 * (3.5em - 100%) + 100%), calc(-.707 * 3.5em)) rotate(45deg);
     -webkit-transform-origin: 0 0;
             transform-origin: 0 0;
 
@@ -253,7 +261,19 @@ body {
 
     font-size: 1.2em;
     font-family: "Open Sans Condensed", sans-serif;
+    -webkit-animation: aparece 3s;
+    animation: aparece 3s;
+    animation-fill-mode: backwards;
+
 }
+
+@keyframes aparece {
+    0% {
+        opacity: 0;
+        transform: scale(0.001);
+    }
+}
+
 .blog .inicio-post {
     position: absolute;
     top: 4em;

@@ -27,6 +27,15 @@ h1, h2 {
 
 h1 {
 	text-shadow: 5px 5px #000;
+	-webkit-animation: aparece 2s;
+	animation: aparece 2s;
+}
+
+@keyframes aparece {
+	0% {
+		opacity: 0;
+        transform: scale(0.001);
+	}
 }
 
 h2 {
@@ -70,11 +79,53 @@ considerar padding e bordas nesse cálculo. Então o elemento diminui pois agora
 	border-bottom-color: #333;
     border-right-color: #FFF;
     margin: 1rem 0;
+    position: relative;
+    transition: transform 1s, box-shadow 1s;
+    transition-delay: 0s, 1s;
+    -webkit-animation: quica 1s infinite;
+    animation: quica 1s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
 }
 
 .citacao:hover,
 .citacao:focus{
 	box-shadow: 0 0 0 99999px rgba(0,0,0,.8);
+	transition-delay: 1s, 0s;
+	-webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+@-webkit-keyframes quica {
+    from {
+        top: 0;
+    }
+    90% {
+        transform: rotate(-2deg);
+    }
+    95% {
+        transform: rotate(2deg);
+    }
+    to {
+        top: 1em;
+    }
+}
+
+@keyframes quica {
+    from {
+        top: 0;
+    }
+    90% {
+        transform: rotate(-2deg);
+    }
+    95% {
+        transform: rotate(2deg);
+    }
+    to {
+        top: 1 em;
+    }
 }
 
 blockquote:nth-of-type(odd) {
@@ -110,7 +161,7 @@ footer a:focus {
 	text-align: center;
 	float: right;
 	clear: right;
-	width: 15%;
+	width: calc(0.9 * 300px);
 	box-sizing: border-box;
 	/*position: relative Ele fica relativo a tela, qualquer modificacao, altera a tela, ele precisa das propriedades top, left, right, bottom para se mexer*/
 	position: relative;
@@ -133,7 +184,7 @@ footer a:focus {
 }
 
 main {
-	width: 85%;
+	width: calc(100% - 0.9 * 300px);
 	float: left;
 }
 
@@ -292,6 +343,37 @@ blockquote::before {
     font-size: .75em;
 }
 
+th {
+	background-color: #3C1D3D;
+	color: white;
+	font-weight: bold;
+}
+
+table {
+	border-spacing: .25em;
+	border-collapse: separate;
+}
+
+th, td {
+	padding: 1em;
+}
+
+tbody th:first-child {
+	background-color: #851944;
+	color: white;
+	font-weight: bold;
+}
+
+tbody td {
+	background-color: #EEE;
+	color: inherit;
+}
+
+.estudo {
+	vertical-align: middle;
+	text-align: center;
+    font-style: italic;
+}
 
 /*Gravata borboleta*/
 /*div {
